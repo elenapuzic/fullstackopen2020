@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-function App() {
+const SayHi = (props) => {
+  return(
+      <div>
+        <p>Hello {props.name}, are you {props.age} years old?</p>
+      </div>
+  )
+}
+
+const App = () => {
+  const now = new Date();
+  const name = "Leon"
+    const ageLeon = 4;
+  const ageElena = 25;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      <>
+        <p>Today is {now.toDateString()}</p>
+        <SayHi name={name} age={ageLeon}/>
+        <SayHi name="Elena" age={ageElena}/>
+      </>
+  )
 }
 
 export default App;
+
+ReactDOM.render(<App />, document.getElementById('root'))
