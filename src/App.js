@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Header from "./components/Header";
+import Content from "./components/Content";
+import Total from "./components/Total";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const App = () => {
+        const course = {
+            name: 'Half Stack application development',
+            parts: [
+                {
+                    name: 'Fundamentals of React',
+                    exercises: 10
+                },
+                {
+                    name: 'Using props to pass data',
+                    exercises: 7
+                },
+                {
+                    name: 'State of a component',
+                    exercises: 14
+                }
+            ]
+        }
+
+    return (
+        <div>
+            <Header courseName={course.name} />
+            <Content partArray={course.parts}/>
+            <Total numOfExercises={course.parts} />
+        </div>
+    )
 }
 
 export default App;
